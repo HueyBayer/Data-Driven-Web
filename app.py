@@ -18,7 +18,7 @@ JOBS = [
     'id': 3,
     'title': 'Data Manager',
     'location': 'Laguna, Philippines',
-    'salary': 'Php. 80,000'
+    'salary': 'Php. 90,000'
   }
 ]
 
