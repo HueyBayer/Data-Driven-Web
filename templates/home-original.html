@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jovian Careers</title>
+    <style>
+      h1 {
+        font-size: 40px;
+        font-family: Helvetica;
+        font-weight: normal;
+        color: rgb(50, 50, 50);
+        text-align: center;
+      }
+
+      #banner {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+      }
+
+      h2 {
+        font-family: Helvetica;
+        font-size: 28px;
+        color: rgbrgb(100), 100);
+        text-align: center;
+        font-weight: normal;
+      }
+
+      .bodytext {
+        font-family: Helvetica;
+        color: rgbrgb(80, 80, 80);
+        font-weight: normal;
+      }
+
+      #container {
+        max-width: 1080px;
+        margin: 0 auto 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    <h1>Jovian Careers</h1>
+    <img id = "banner" src = "https://first-web-application--hueybayer.repl.co/static/banner.jpg">
+    <h2>About Jovian</h2>
+    <p class="bodytext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra suspendisse potenti nullam ac. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Arcu non sodales neque sodales ut. Eu turpis egestas pretium aenean pharetra magna ac placerat. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Ac tortor vitae purus faucibus. Mauris nunc congue nisi vitae suscipit tellus mauris. Urna duis convallis convallis tellus id interdum velit laoreet. Nascetur ridiculus mus mauris vitae ultricies leo integer. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet.</p>
+    <h2>Open Positions</h2>
+    <div>
+      {% for n in jobs %}
+        <div style="margin-bottom: 16px;">
+          <h4 style="color: rgb(120,120,120); margin-bottom: 4px;">
+            {{n['title']}}
+          </h4>
+          <div>
+            <b>Location:</b> {{n['location']}}
+          </div>
+          {% if 'salary' in n %}
+          <div>
+            <b>Salary: </b> {{n['salary']}}
+          </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div style = "text-align: center;">
+    <button>Contact Us</button>
+      <p>Copyright 2023, Jovian</p>
+    </div>
+    </div>
+  </body>
+</html>
