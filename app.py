@@ -30,6 +30,10 @@ def hello_Jovian():
 @app.route("/api/jobs")
 def list_jobs():
   return jsonify(JOBS)
+
+@app.route("/newhome")
+def new_home():
+  return render_template("home-original.html")
   
 if __name__ == "__main__":
   app.run(host = '0.0.0.0', debug = True)
