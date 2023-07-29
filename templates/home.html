@@ -12,11 +12,19 @@
     </style>
   </head>
   <body>
+    {% include 'nav.html'%}
+    <img class = "img-fluid" id= "banner" style="margin-bottom: 8px;" src = "https://first-web-application--hueybayer.repl.co/static/banner.jpg">
     <div class = "container">
     <h1 class = "text-center mt-2 mb-2" >Jovian Careers</h1>
-    <img class = "img-fluid" id= "banner" src = "https://first-web-application--hueybayer.repl.co/static/banner.jpg">
     <h2 class = "text-center mt-2 mb-4">About Jovian</h2>
+    <div class="row" style="margin-bottom: 16px;"> 
+      <div class="col-md-8">
     <p class = "lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra suspendisse potenti nullam ac. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Arcu non sodales neque sodales ut. Eu turpis egestas pretium aenean pharetra magna ac placerat. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Ac tortor vitae purus faucibus. Mauris nunc congue nisi vitae suscipit tellus mauris. Urna duis convallis convallis tellus id interdum velit laoreet. Nascetur ridiculus mus mauris vitae ultricies leo integer. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet.</p>
+      </div>
+      <div class="d-none d-md-block col-4">
+      <img src="/static/people.jpg" style="height: 280px;border-radius: 4px;">
+      </div>
+    </div>
     <h2 class = "text-center">Job Openings</h2>
     <div>
       {% for n in jobs %}
@@ -24,9 +32,9 @@
       {% endfor %}
     </div>
     <div class="text-center">
-    <button class= "btn btn-primary btn-lg">Contact Us</button>
-      <p class="mt-4">Copyright 2023, Jovian</p>
+    <a href="mailto:xoveman575@naymedia.com?subject=Question%20about%20Job%20Openings&body=My%20name%3A%20%3CYour%20name%3E%0D%0A%0D%0AQuestion%3A%20%3Cyour%20question%3E%0D%0A" class= "btn btn-primary btn-lg">Contact Us</a>
     </div>
     </div>
+    {% include 'footer.html' %}
   </body>
 </html>
