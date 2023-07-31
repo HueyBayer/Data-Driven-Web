@@ -1,3 +1,13 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
-engine = create_engine("mysql+pymysql://71ru4roe600vesg5b39n:pscale_pw_yQQ9K8je6dGBx6tQiBBNfEeUWyH8RcMaKvRKCTyiB7j@aws.connect.psdb.cloud/databasedrivenwebsite?charset=utf8mb4")
+database_connection = "mysql+pymysql://sc9al75jcwv5ggdf7e0f:pscale_pw_GXIc7myc3G7qmIxWjq6UHa1p93wGQIjbA3FO0oxdadb@aws.connect.psdb.cloud/databasedrivenwebsite?charset=utf8mb4"
+
+engine = create_engine(database_connection, connect_args={"ssl": {"ssl_ca":"/etc/ssl/cert.pem"}})
+
+def load_jobs_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("select * from jobs"))
+    jobs = []
+    for row in result.all():
+      jobs.append(row._mapping)
+    return jobs
