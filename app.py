@@ -1,5 +1,5 @@
-from flask import Flask, render_template, jsonify
-from database import load_jobs_from_db, load_job_from_db
+from flask import Flask, render_template, jsonify, request
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 from sqlalchemy import text
 
 app = Flask(__name__)
@@ -21,6 +21,13 @@ def show_job(id):
     return "Not Found", 404
   return render_template("apply.html", job=job_lists)
   
+
+@app.route("/apply/<id>/application", methods=['post'])
+def apply_to_job(id):
+  data = request.form
+  job_lists = load_job_from_db(id)
+  add_application_to_db(id, data)
+  return render_template("submit.html", application=data, job=job_lists)
+
 if __name__ == "__main__":
   app.run(host = '0.0.0.0', debug = True)
-
